@@ -1,0 +1,20 @@
+<script src="./glsl2wgsl/glslang.js"></script>
+<!-- see: https://forum.babylonjs.com/t/can-i-use-the-tintwasm-library-in-the-babylon-js-repository/23673 -->
+<script src="./glsl2wgsl/twgsl.js"></script>
+
+<script src="./main.js" type="module"></script>
+
+<select name="shader_type" id="shader_type">
+    <option value="vertex">vertex</option>
+    <option value="fragment">fragment</option>
+</select>
+
+<div><textarea id="glsl" name="glsl">
+#version 450
+layout(location = 0) in vec3 position;
+void main() {
+    gl_Position = vec4(position, 1.0);
+}
+</textarea></div>
+<input type="button" id="convert" value="Convert GLSL to WGSL" />
+<div><textarea id="wgsl" name="wgsl"></textarea></div>
